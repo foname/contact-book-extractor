@@ -14,6 +14,17 @@ def split_name_and_address(capture_name, str_name_address):
     return name, address.strip()
 
 def phone(str_input, phone_num):
+    '''
+    Returns a string that consist of phone number, name, and address.
+
+    Parameters:
+        str_input (str):The string contains un-organized contact information.
+        phone_num (str):The string phone number ex."48-421-674-8974".
+
+    Returns:
+        (str):String of "Phone => {phone_number}, Name => {name}, Address => {address}")  
+    '''
+
     result = re.findall("\+{}".format(phone_num), str_input)
     if not result:
         return "Error => Not found: {}".format(phone_num)
