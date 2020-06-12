@@ -18,7 +18,7 @@ For song decoder
 `python -m tests.test_song_decoder`
 
 For contact extractor
-`python -m tests.test_phone_decoder`
+`python -m tests.test_contact_extractor`
 
 ## How to use
 For song decoder
@@ -32,7 +32,7 @@ For song decoder
         (str): Readable string 
 ```
 
-For phone decoder
+For contact_extractor
 ```
     Returns a string that consist of phone number, name, and address.
 

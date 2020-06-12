@@ -1,5 +1,5 @@
 import unittest
-from phone_decoder import phone
+from contact_extractor import phone
 
 class TestPhone(unittest.TestCase):
     dr = ("/+1-541-754-3010 156 Alphand_St. <J Steeve>\n 133, Green, Rd. <E Kustur> NY-56423 ;+1-541-914-3010\n"
