@@ -5,7 +5,18 @@ def _capture_name(match):
     names.append(match)
     return
 
-def _split_name_and_address(capture_name, str_name_address):
+def split_name_and_address(capture_name, str_name_address):
+    '''
+    split between name and address
+
+    Parameters:
+        capture_name (function): The string that match will be stored to list by this function
+        str_name_address (str):The string that contain un-ordernized name and address.
+
+    Returns:
+        name (str): String of name 
+        address (str): String of address
+    '''
     global names
     names = []
     address = re.sub('<(.*)>', capture_name, str_name_address)
@@ -36,8 +47,8 @@ def phone(str_input, phone_num):
         last_index = str_input.find('\n', phone.end())
         if last_index < 0:
             last_index = len(str_input)
-        str_subject = str_input[first_index:last_index]
-        name_and_address = re.sub("\+{}".format(phone_num), "", str_subject)
-        name, address = _split_name_and_address(_capture_name, name_and_address)
+        relevant_str = str_input[first_index:last_index]
+        name_and_address = re.sub("\+{}".format(phone_num), "", relevant_str)
+        name, address = split_name_and_address(_capture_name, name_and_address)
         return "Phone => {}, Name => {}, Address => {}".format(phone_num, name, address)
     return
