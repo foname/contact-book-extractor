@@ -1,11 +1,11 @@
 import re
 
 names = []
-def capture_name(match):
+def _capture_name(match):
     names.append(match)
     return
 
-def split_name_and_address(capture_name, str_name_address):
+def _split_name_and_address(capture_name, str_name_address):
     global names
     names = []
     address = re.sub('<(.*)>', capture_name, str_name_address)
@@ -38,6 +38,6 @@ def phone(str_input, phone_num):
             last_index = len(str_input)
         str_subject = str_input[first_index:last_index]
         name_and_address = re.sub("\+{}".format(phone_num), "", str_subject)
-        name, address = split_name_and_address(capture_name, name_and_address)
+        name, address = _split_name_and_address(_capture_name, name_and_address)
         return "Phone => {}, Name => {}, Address => {}".format(phone_num, name, address)
     return
